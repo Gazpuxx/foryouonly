@@ -6,28 +6,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <script>
+  const btn = document.getElementById("musicBtn");
   const music = document.getElementById("bgMusic");
-  const btn = document.querySelector(".music-btn");
 
   btn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play().catch(err => {
-        console.log("Playback error:", err);
+    console.log("BUTTON CLICKED");
+
+    music.play()
+      .then(() => {
+        console.log("MUSIC PLAYING");
+        btn.innerText = "PLAYING 🔈";
+        btn.style.background = "green";
+      })
+      .catch(err => {
+        console.error("PLAY ERROR:", err);
+        btn.innerText = "ERROR ❌";
       });
-      btn.innerText = "🔈";
-    } else {
-      music.pause();
-      btn.innerText = "🔊";
-    }
   });
 </script>
 
-<body class="center">
-    <audio id="bgMusic" loop>
-     <source src="music.mp3" type="audio/mpeg">
-    </audio>
 
-    <button class="music-btn" onclick="toggleMusic()">🔊</button>
+<body class="center">
+    <button>id="musicBtn">CLICK ME 🔊</button>
+
+   <audio id="bgMusic" preload="auto" loop>
+    <source src="music.mp3" type="audio/mpeg">
+   </audio>
   <div class="card">
     <h1>HiiHIhi Prarthana 🌸</h1>
     <p><strong>Do you want to know what this website is for?</strong></p>
