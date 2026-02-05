@@ -7,19 +7,19 @@
 </head>
 <script>
   const music = document.getElementById("bgMusic");
-  let isPlaying = false;
+  const btn = document.querySelector(".music-btn");
 
-  function toggleMusic() {
-    if (!isPlaying) {
-      music.play();
-      isPlaying = true;
-      document.querySelector(".music-btn").innerText = "🔈";
+  btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play().catch(err => {
+        console.log("Playback error:", err);
+      });
+      btn.innerText = "🔈";
     } else {
       music.pause();
-      isPlaying = false;
-      document.querySelector(".music-btn").innerText = "🔊";
+      btn.innerText = "🔊";
     }
-  }
+  });
 </script>
 
 <body class="center">
