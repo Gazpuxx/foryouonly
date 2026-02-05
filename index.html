@@ -6,24 +6,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <script>
-  const btn = document.getElementById("musicBtn");
-  const music = document.getElementById("bgMusic");
-
-  btn.addEventListener("click", () => {
-    console.log("BUTTON CLICKED");
-
-    music.play()
-      .then(() => {
-        console.log("MUSIC PLAYING");
-        btn.innerText = "PLAYING 🔈";
-        btn.style.background = "green";
-      })
-      .catch(err => {
-        console.error("PLAY ERROR:", err);
-        btn.innerText = "ERROR ❌";
-      });
-  });
+  alert("JS IS RUNNING");
 </script>
+
 
 
 <body class="center">
