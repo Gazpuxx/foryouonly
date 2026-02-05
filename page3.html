@@ -5,46 +5,40 @@
   <title>🤍</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  const btn = document.getElementById("musicBtn");
-  const music = document.getElementById("bgMusic");
 
-  btn.addEventListener("click", () => {
-    console.log("BUTTON CLICKED");
-
-    music.play()
-      .then(() => {
-        console.log("MUSIC PLAYING");
-        btn.innerText = "PLAYING 🔈";
-        btn.style.background = "green";
-      })
-      .catch(err => {
-        console.error("PLAY ERROR:", err);
-        btn.innerText = "ERROR ❌";
-      });
-  });
-</script>
+ <script>
+   document.getElementById("musicBtn").addEventListener("click", function () {
+     const music = document.getElementById("bgMusic");
+ 
+     music.play()
+       .then(() => {
+         this.innerText = "Music playing 🔈";
+         this.style.background = "green";
+         this.style.color = "white";
+       })
+       .catch(err => {
+        alert("Audio failed: " + err);
+       });
+   });
+  </script>
 
 
-<body class="center">
-    <button id="musicBtn">CLICK ME 🔊</button>
+ <body class="center">
+    <button id="musicBtn">Play music 🎵</button>
 
-   <audio id="bgMusic" preload="auto" loop>
-    <source src="music.mp3" type="audio/mpeg">
-   </audio>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+   <div class="card">
+     <h1>I just wanted you to know this🤍</h1>
 
-  <div class="card">
-    <h1>I just wanted you to know this🤍</h1>
-
-    <p>
+     <p>
       I just thought of you,<br>
       and I made this with care and love.
-    </p>
+     </p>
 
-    <p><strong>Happy Valentine’s Day 🌷</strong><br>
-    I hope this made you smile, even a little.</p>
+     <p><strong>Happy Valentine’s Day 🌷</strong><br>
+     I hope this made you smile, even a little.</p>
 
-    <a href="page4.html" class="btn">That was really sweet 💖</a>
-  </div>
-</body>
+     <a href="page4.html" class="btn">That was really sweet 💖</a>
+   </div>
+ </body>
 </html>

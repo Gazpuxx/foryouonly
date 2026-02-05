@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<h1 style="color:red;">TEST MARKER</h1>
+
 
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hi 🌸</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<script>
-  alert("JS IS RUNNING");
-</script>
+ <head>
+   <meta charset="UTF-8">
+   <title>HII 🌸</title>
+   <link rel="stylesheet" href="style.css">
+ </head>
+
+ <script>
+   document.getElementById("musicBtn").addEventListener("click", function () {
+     const music = document.getElementById("bgMusic");
+ 
+     music.play()
+       .then(() => {
+         this.innerText = "Music playing 🔈";
+         this.style.background = "green";
+         this.style.color = "white";
+       })
+       .catch(err => {
+        alert("Audio failed: " + err);
+       });
+   });
+  </script>
 
 
 
-<body class="center">
-    <button>id="musicBtn">CLICK ME 🔊</button>
+ <body class="center">
+    <button id="musicBtn">Play music 🎵</button>
 
-   <audio id="bgMusic" preload="auto" loop>
-    <source src="music.mp3" type="audio/mpeg">
-   </audio>
-  <div class="card">
-    <h1>HiiHIhi Prarthana 🌸</h1>
-    <p><strong>Do you want to know what this website is for?</strong></p>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
 
-    <div class="buttons">
+    <div class="card">
+      <h1>HiiHIhi Prarthana 🌸</h1>
+      <p><strong>Do you want to know what this website is for?</strong></p>
+
+      <div class="buttons">
       <a href="page2.html" class="btn">Yes 🌷</a>
       <a href="page2.html" class="btn">Yes 🌷</a>
     </div>
-  </div>
-</body>
+ </body>
 </html>

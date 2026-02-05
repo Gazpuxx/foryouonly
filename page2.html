@@ -5,43 +5,39 @@
   <title>💌</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  const btn = document.getElementById("musicBtn");
-  const music = document.getElementById("bgMusic");
 
-  btn.addEventListener("click", () => {
-    console.log("BUTTON CLICKED");
-
-    music.play()
-      .then(() => {
-        console.log("MUSIC PLAYING");
-        btn.innerText = "PLAYING 🔈";
-        btn.style.background = "green";
-      })
-      .catch(err => {
-        console.error("PLAY ERROR:", err);
-        btn.innerText = "ERROR ❌";
-      });
-  });
-</script>
+ <script>
+   document.getElementById("musicBtn").addEventListener("click", function () {
+     const music = document.getElementById("bgMusic");
+ 
+     music.play()
+       .then(() => {
+         this.innerText = "Music playing 🔈";
+         this.style.background = "green";
+         this.style.color = "white";
+       })
+       .catch(err => {
+        alert("Audio failed: " + err);
+       });
+   });
+  </script>
 
 
-<body class="center">
-    <button>id="musicBtn">CLICK ME 🔊</button>
+ <body class="center">
+    <button id="musicBtn">Play music 🎵</button>
 
-   <audio id="bgMusic" preload="auto" loop>
-    <source src="music.mp3" type="audio/mpeg">
-   </audio>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
 
-  <div class="card">
-    <h1>Okayy</h1>
-    <p>I made this little website just for you.</p>
-    <p>
-      Because today felt like a good day to tell you that<br>
-      <strong>YOU</strong> crossed my mind, and I wanted to do something nice with that thought.
-    </p>
 
-    <a href="page3.html" class="btn">Tell me more 💌</a>
-  </div>
-</body>
+   <div class="card">
+     <h1>Okayy</h1>
+     <p>I made this little website just for you.</p>
+     <p>
+       Because today felt like a good day to tell you that<br>
+       <strong>YOU</strong> crossed my mind, and I wanted to do something nice with that thought.
+     </p>
+
+     <a href="page3.html" class="btn">Tell me more 💌</a>
+    </div>
+ </body>
 </html>
