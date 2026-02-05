@@ -49,3 +49,17 @@ p {
   transform: scale(1.05);
   background: #ff5c8a;
 }
+
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+

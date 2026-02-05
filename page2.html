@@ -5,9 +5,31 @@
   <title>💌</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  const music = document.getElementById("bgMusic");
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (!isPlaying) {
+      music.play();
+      isPlaying = true;
+      document.querySelector(".music-btn").innerText = "🔈";
+    } else {
+      music.pause();
+      isPlaying = false;
+      document.querySelector(".music-btn").innerText = "🔊";
+    }
+  }
+</script>
+
 <body class="center">
+    <audio id="bgMusic" loop>
+     <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" onclick="toggleMusic()">🔊</button>
   <div class="card">
-    <h1>Okayy🥺</h1>
+    <h1>Okayy</h1>
     <p>I made this little website just for you.</p>
     <p>
       Because today felt like a good day to tell you that<br>
