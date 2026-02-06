@@ -9,34 +9,49 @@
  </head>
 
  <script>
-   document.getElementById("musicBtn").addEventListener("click", function () {
-     const music = document.getElementById("bgMusic");
+   const music = document.getElementById("bgMusic");
+   const btn = document.getElementById("musicBtn");
+
+   // restore state
+   if (localStorage.getItem("musicPlaying") === "true") {
+     music.play();
+     btn.innerText = "🔈";
+   }
  
-     music.play()
-       .then(() => {
-         this.innerText = "Music playing 🔈";
-         this.style.background = "green";
-         this.style.color = "white";
-       })
-       .catch(err => {
-        alert("Audio failed: " + err);
-       });
+   btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      localStorage.setItem("musicPlaying", "true");
+      btn.innerText = "🔈";
+    } else {
+      music.pause();
+      localStorage.setItem("musicPlaying", "false");
+      btn.innerText = "🔊";
+    }
    });
-  </script>
+ </script>
 
 
 
  <body class="center">
-    <audio id="bgMusic" src="music.mp3" controls></audio>
-      <button id="musicBtn" class="btn">Play Music 🎵</button>
+     <audio id="bgMusic" src="music.mp3" loop></audio>
 
-    <div class="card">
-      <h1>HiiHIhi Prarthana 🌸</h1>
-      <p><strong>Do you want to know what this website is for?</strong></p>
+     <button id="musicBtn">🔊</button>
 
-      <div class="buttons">
-      <a href="page2.html" class="btn">Yes 🌷</a>
-      <a href="page2.html" class="btn">Yes 🌷</a>
-    </div>
+
+     <div class="card">
+       <h1>HiiHIhi Prarthana 🌸</h1>
+       <p><strong>Do you want to know what this website is for?</strong></p>
+
+       <div class="buttons">
+        <a href="page2.html" class="btn" onclick="localStorage.setItem('musicPlaying','true')">
+         Yes 🌷
+        </a>
+
+       <a href="page2.html" class="btn" onclick="localStorage.setItem('musicPlaying','true')">
+       Yes 🌷
+       </a>
+       </div>
+     </div>
  </body>
 </html>
