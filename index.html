@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <title>HII 🌸</title>
-   <link rel="stylesheet" href="style.css">
-   <link rel="icon" href="favicon.ico">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 🌷</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon"  href="favicon.ico">
+</head>
 
- </head>
+<body>
 
+  <!-- Background music -->
+  <audio id="bgMusic" src="music.mp3" loop></audio>
 
- <body class="center">
-    
-     <div class="card">
+  <!-- PAGE 1 -->
+  <section class="page active" id="page1">
+    <div class="card">
        <h1>HiiHii Prarthana 🌸</h1>
        <p><strong>Do you want to know what this website is for?</strong></p>
 
@@ -25,31 +26,69 @@
        </div>
      </div>
 
-     <audio id="bgMusic" src="music.mp3" loop></audio>
-    <button id="musicBtn">🔊</button>
+  </section>
 
+  <!-- PAGE 2 -->
+  <section class="page" id="page2">
+    <div class="card">
+     <h1>Okayy</h1>
+     <p>I made this little website just for you.</p>
+     <p>
+       Because today felt like a good day to tell you that<br>
+       <strong>YOU</strong> crossed my mind (you always do), and I wanted to do something nice with that thought.
+     </p>
 
-   <script>
-   const music = document.getElementById("bgMusic");
-   const btn = document.getElementById("musicBtn");
+     <a href="page3.html" class="btn">Tell me more 💌</a>
+    </div>
 
-   // restore state
-   if (localStorage.getItem("musicPlaying") === "true") {
-     music.play();
-     btn.innerText = "🔈";
-   }
- 
-   btn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      localStorage.setItem("musicPlaying", "true");
-      btn.innerText = "🔈";
-    } else {
-      music.pause();
-      localStorage.setItem("musicPlaying", "false");
-      btn.innerText = "🔊";
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page" id="page3">
+    <div class="card">
+     <h1>I just wanted you to know this🤍</h1>
+
+     <p>
+      You make me feel happy and want to do better,<br>
+      and so, I made this for you with care and love.
+     </p>
+
+     <p><strong>Happy Valentine’s Day 🌷</strong><br>
+     I hope this made you smile, even a little.</p>
+
+     <a href="page4.html" class="btn">That was really sweet 💖</a>
+   </div>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section class="page" id="page4">
+   <div class="card">
+     <h1>Thats all!</h1>
+     <p>Have a lovely day!!!</p>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    const music = document.getElementById("bgMusic");
+    let musicStarted = false;
+
+    function nextPage(pageNumber) {
+      // start music on first interaction
+      if (!musicStarted) {
+        music.play().catch(() => {});
+        musicStarted = true;
+      }
+
+      // hide all pages
+      document.querySelectorAll(".page").forEach(p => {
+        p.classList.remove("active");
+      });
+
+      // show next page
+      document.getElementById("page" + pageNumber).classList.add("active");
     }
-   });
- </script>
- </body>
+  </script>
+
+</body>
 </html>
