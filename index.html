@@ -8,7 +8,26 @@
    <link rel="stylesheet" href="style.css">
  </head>
 
- <script>
+
+ <body class="center">
+    
+     <div class="card">
+       <h1>HiiHIhi Prarthana 🌸</h1>
+       <p><strong>Do you want to know what this website is for?</strong></p>
+
+       <div class="buttons">
+        <a href="page2.html" class="btn">Yes 🤍</a>
+        <a href="page2.html" class="btn">Yes 🌷</a>
+
+       
+       </div>
+     </div>
+
+     <audio id="bgMusic" src="music.mp3" loop></audio>
+    <button id="musicBtn">🔊</button>
+
+
+   <script>
    const music = document.getElementById("bgMusic");
    const btn = document.getElementById("musicBtn");
 
@@ -30,28 +49,5 @@
     }
    });
  </script>
-
-
-
- <body class="center">
-     <audio id="bgMusic" src="music.mp3" loop></audio>
-
-     <button id="musicBtn">🔊</button>
-
-
-     <div class="card">
-       <h1>HiiHIhi Prarthana 🌸</h1>
-       <p><strong>Do you want to know what this website is for?</strong></p>
-
-       <div class="buttons">
-        <a href="page2.html" class="btn" onclick="localStorage.setItem('musicPlaying','true')">
-         Yes 🌷
-        </a>
-
-       <a href="page2.html" class="btn" onclick="localStorage.setItem('musicPlaying','true')">
-       Yes 🌷
-       </a>
-       </div>
-     </div>
  </body>
 </html>
