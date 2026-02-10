@@ -99,12 +99,15 @@
     }
 
     // Flying images setup
-    const imageUrl = 'https://pngimg.com/uploads/rose/rose_PNG658.png';
+    const imageUrls = [
+      'https://pngimg.com/uploads/rose/rose_PNG658.png',
+      'https://static.vecteezy.com/system/resources/previews/011/459/594/original/heart-shape-pink-heart-love-heart-symbol-free-png.png'
+    ];
     const container = document.getElementById('flyingContainer');
 
     function createFlyingImage() {
       const img = document.createElement('img');
-      img.src = imageUrl;
+      img.src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
       img.className = 'flying-image';
       
       // Random starting position
