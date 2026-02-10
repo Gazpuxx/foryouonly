@@ -58,6 +58,9 @@
     </div>
   </div>
 
+  <!-- Flying Images Container -->
+  <div id="flyingContainer"></div>
+
   <!-- Audio - persists across all pages -->
   <audio id="bgMusic" src="music.mp3" loop></audio>
   <button id="musicBtn">🔊</button>
@@ -94,6 +97,32 @@
       // Show selected page
       document.getElementById(pageId).style.display = "block";
     }
+
+    // Flying images setup
+    const imageUrl = 'https://pngimg.com/uploads/rose/rose_PNG658.png';
+    const container = document.getElementById('flyingContainer');
+
+    function createFlyingImage() {
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.className = 'flying-image';
+      
+      // Random starting position
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * window.innerHeight;
+      img.style.left = startX + 'px';
+      img.style.top = startY + 'px';
+      
+      container.appendChild(img);
+      
+      // Remove image after animation completes
+      setTimeout(() => {
+        img.remove();
+      }, 8000);
+    }
+
+    // Create new flying image every 300ms
+    setInterval(createFlyingImage, 300);
   </script>
 </body>
 </html>
